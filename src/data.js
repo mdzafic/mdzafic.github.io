@@ -12,8 +12,7 @@ export const profile = {
   available: "Open to internships & junior roles",
 };
 
-// Traka ispod hero sekcije
-export const highlights = ["C#", "ASP.NET Core", "Node.js", "Python", "TensorFlow", "MySQL", "Docker"];
+
 
 export const projects = [
   {

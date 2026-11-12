@@ -1,4 +1,4 @@
-import { profile, highlights } from "../data";
+import { profile } from "../data";
 
 export default function Hero() {
   return (
@@ -34,12 +34,6 @@ export default function Hero() {
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
-      </div>
-
-      <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 border-y border-line py-6 text-sm text-muted">
-        {highlights.map((s) => (
-          <span key={s}>{s}</span>
-        ))}
       </div>
     </header>
   );
