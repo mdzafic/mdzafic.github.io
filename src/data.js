@@ -41,7 +41,7 @@ export const projects = [
   },
   {
     slug: "smartlib",
-    year: "2025",
+    year: "2026",
     type: "Full-stack",
     title: "SmartLib: Library Information System",
     text: "Library management with authentication, book lending, reservations, reviews, reporting and role-based access control.",
@@ -54,11 +54,11 @@ export const projects = [
       "Redis caching and Docker deployment",
     ],
     stack: ["C#", "ASP.NET Core", "Entity Framework", "MySQL", "Redis", "Docker"],
-    repo: "https://github.com/mdzafic",
+    repo: "https://github.com/mdzafic/SmartLib",
     demo: "",
     images: [
       { src: "/projects/smartlib/1.png", caption: "Catalogue page" },
-      { src: "/projects/smartlib/2.png", caption: "Reservations" },
+      { src: "/projects/smartlib/2.png", caption: "Announcements" },
     ],
     tint: "bg-violet-50",
   },
