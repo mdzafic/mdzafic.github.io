@@ -13,7 +13,7 @@ export default function Hero() {
             {profile.headline}
           </h1>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
-            Hi, I'm {profile.name}. {profile.intro}
+            {profile.intro}
           </p>
           <div className="mt-7 flex gap-3">
             <a href="#contact" className="rounded-full bg-ink px-5 py-2.5 text-sm text-white hover:opacity-85">
@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
 
         {/* Stavi svoju sliku u public/profile.jpg */}
-        <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-neutral-200">
+        <div className="mx-auto aspect-[4/5] w-[70%] overflow-hidden rounded-3xl bg-neutral-200">
           <img
             src="/profile.jpg"
             alt={profile.name}
