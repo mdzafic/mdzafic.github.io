@@ -4,12 +4,12 @@ export const profile = {
   role: "Software Engineer",
   headline: "Hi, I'm Muhamed Džafić",
   intro:
-    "Computer Science student at the Faculty of Electrical Engineering Sarajevo. I like problems where software engineering and AI come together, and I'm looking for an internship or junior role.",
+    "Computer Science and Informatics graduate (BSc) and MSc student at the Faculty of Electrical Engineering Sarajevo. I build full-stack applications in C#/.NET and Node.js, and I also test what I build, with automated UI and API tests and a focus on security. I like problems where engineering, quality and AI come together.",
   location: "Sarajevo, Bosnia and Herzegovina",
   github: "https://github.com/mdzafic",
   linkedin: "https://linkedin.com/in/muhamed-dzafic",
   email: "mdzafic1@etf.unsa.ba",
-  available: "Open to internships & junior roles",
+  available: "Open to software engineering & QA internships and junior roles",
 };
 
 
@@ -17,6 +17,7 @@ export const profile = {
 export const projects = [
   {
     slug: "rul-uncertainty",
+    featured: true,
     year: "2026",
     type: "AI / Research",
     title: "Remaining Useful Life Prediction with Uncertainty Estimation",
@@ -88,6 +89,7 @@ export const projects = [
   },
   {
     slug: "smartlib",
+    featured: true,
     year: "2026",
     type: "Full-stack",
     title: "SmartLib: Library Information System",
@@ -148,6 +150,7 @@ export const projects = [
   },
   {
     slug: "scenario-pro",
+    featured: true,
     year: "2025",
     type: "Full-stack",
     title: "Scenario Pro: Collaborative Screenwriting",
@@ -280,6 +283,170 @@ export const projects = [
     ],
     tint: "bg-amber-50",
   },
+    {
+    slug: "music-genre-classification",
+    year: "2025",
+    type: "AI / ML",
+    title: "Music Genre Classification with CNNs on Mel-Spectrograms",
+    text: "CNN that classifies music genres from mel-spectrogram images of audio recordings, trained on the GTZAN dataset.",
+    overview:
+      "A team project for the Digital Signal Processing course at the Faculty of Electrical Engineering Sarajevo. Audio recordings are converted into mel-spectrogram images, which turns genre classification into an image recognition problem solved by a convolutional neural network. The system can predict the genre from a spectrogram image or directly from a .wav file.",
+    features: [
+      "Conversion of .wav audio into mel-spectrogram images with librosa",
+      "CNN with three Conv2D blocks (32, 64, 128 filters), a Dense layer and Dropout",
+      "Genre prediction from a spectrogram image or directly from a .wav file",
+      "Command-line interface with train, predict and interactive modes",
+      "Evaluation with precision, recall and F1-score per genre",
+    ],
+    sections: [
+      {
+        title: "Dataset and preprocessing",
+        items: [
+          "GTZAN: 1000 tracks of 30 s (22050 Hz), 100 per genre, 10 genres",
+          "Spectrograms loaded with Pillow, converted to RGB and resized",
+          "Pixel values normalized to [0, 1]; labels one-hot encoded",
+          "80/20 stratified train/test split, with 10% of training data used for validation",
+        ],
+      },
+      {
+        title: "Model and training",
+        items: [
+          "Three Conv2D + MaxPooling2D blocks, Flatten, Dense(128, ReLU), Dropout(0.3)",
+          "Softmax output layer with 10 classes",
+          "Adam optimizer, categorical cross-entropy, batch size 32",
+        ],
+      },
+      {
+        title: "Results",
+        text: "Overall test accuracy was 64% on 300 test samples. Classical, metal and jazz were recognized most reliably, while disco, rock and reggae were the hardest. Training accuracy approached 100% while validation accuracy plateaued around 60 to 65%, which points to overfitting.",
+        table: {
+          head: ["Genre", "Precision", "Recall", "F1-score"],
+          rows: [
+            ["Classical", "0.96", "0.90", "0.93"],
+            ["Metal", "0.91", "0.67", "0.77"],
+            ["Jazz", "0.81", "0.73", "0.77"],
+            ["Blues", "0.74", "0.77", "0.75"],
+            ["Disco", "0.43", "0.50", "0.46"],
+            ["Overall accuracy", "-", "-", "0.64"],
+          ],
+        },
+      },
+      {
+        title: "Possible improvements",
+        items: [
+          "More data per genre and data augmentation",
+          "Early stopping to reduce overfitting",
+          "More advanced architectures such as ResNet or EfficientNet",
+        ],
+      },
+    ],
+    stack: ["Python", "TensorFlow/Keras", "librosa", "NumPy", "scikit-learn", "Pillow", "Matplotlib"],
+    repo: "https://github.com/mdzafic/Klasifikacija-muzickih-zanrova-pomocu-digitalne-obrade-signala",
+    demo: "",
+    tint: "bg-rose-50",
+  },
+  {
+    slug: "juice-shop-testing",
+    featured: true,
+    year: "2026",
+    type: "QA / Testing",
+    title: "End-to-End Testing of a Web Shop",
+    text: "Manual and automated testing of a deliberately vulnerable web shop: Selenium UI tests, Postman API tests, security bug reports and a load test.",
+    overview:
+      "A team project on OWASP Juice Shop, a web shop built to contain realistic bugs and vulnerabilities. We covered the full QA cycle: designing test cases, automating UI and API tests, reporting bugs, and load testing.",
+    features: [
+      "8 black-box test cases in Azure DevOps Test Plans, with preconditions, test data, steps, expected results, severity and priority",
+      "Selenium WebDriver UI tests in C# with NUnit, using the Page Object Model (9 page classes, 5 test classes)",
+      "Tests grouped into Smoke, Regression, E2E, Negative and Security categories for selective runs",
+      "21 chained Postman requests covering registration, login, basket, checkout and reviews, run through Postman CLI",
+      "3 bugs reported in Azure DevOps, two of them critical security issues",
+      "Load test in Loadster, analyzing response time, TTFB, throughput, CPU and memory",
+    ],
+    sections: [
+      {
+        title: "Results at a glance",
+        table: {
+          head: ["Area", "Result"],
+          rows: [
+            ["Manual test cases", "8 black-box cases documented"],
+            ["UI automation", "8 of 8 Selenium tests passing"],
+            ["API tests", "21 requests, 35 assertions, 0 failures"],
+            ["Bugs reported", "3, including 2 critical security issues"],
+            ["Load test", "40 virtual users, 7,784 hits, 0 errors"],
+          ],
+        },
+      },
+      {
+        title: "Security findings",
+        items: [
+          "IDOR: access to another user's basket",
+          "SQL Injection: authentication bypass",
+        ],
+      },
+    ],
+    stack: ["Azure DevOps", "Selenium", "C#", "NUnit", "Postman", "Loadster", "Git"],
+    demo: "",
+    tint: "bg-rose-50",
+  },
+    {
+    slug: "arnica-ar",
+    year: "2025",
+    type: "AR / 3D",
+    title: "Arnica AR: Augmented Reality Plant Education",
+    text: "Mobile AR app about the endangered medicinal plant Arnica montana, with a Blender-made 3D model, interactive points of interest and a quiz. Built in Unity.",
+    overview:
+      "An augmented reality application developed for the Computer Graphics course at the Faculty of Electrical Engineering Sarajevo. It focuses on interactive education about Arnica montana (moravka), an endangered and protected medicinal plant. The camera of a mobile device recognizes a marker image and shows a 3D model of the plant that can be viewed from all angles. Points of interest on the model open multimedia content, and a quiz tests what the user has learned. The plant model and the surrounding scene were modeled in Blender and brought to life in Unity.",
+    meta: [
+      { label: "Course", value: "Computer Graphics, ETF Sarajevo" },
+      { label: "Academic year", value: "2025/26" },
+      { label: "Platform", value: "Android (.apk)" },
+      { label: "My role", value: "Dodaj svoju ulogu" },
+    ],
+    features: [
+      "Image recognition through the phone camera that activates the AR content",
+      "Interactive 3D model of the plant that can be inspected from every angle",
+      "Points of interest with multimedia content: tincture bottle (video on healing properties), microscope (anatomy of petals, leaves and stem) and goat (folk legend about the discovery of the plant's healing power)",
+      "Educational quiz about the appearance, structure and characteristics of the plant",
+      "Natural mountain habitat with bees, butterflies, rocks and grass",
+    ],
+    sections: [
+      {
+        title: "3D modeling in Blender",
+        items: [
+          "Challenges: detailed pistil, petal texture and leaf veins",
+          "Flower symmetry used to model the petals more efficiently",
+          "Stem and leaves modeled with clear shapes and the characteristic hairiness",
+        ],
+      },
+      {
+        title: "Development in Unity",
+        items: [
+          "AR implementation: camera handling and marker detection",
+          "Interactivity: scripts for the points of interest and the quiz logic",
+          "Optimization: Blender models adapted for smooth performance on mobile devices",
+        ],
+      },
+      {
+        title: "How to run",
+        items: [
+          "Install the .apk file on an Android device",
+          "Point the camera at the marker image",
+          "After recognition, the start scene opens with options for model view, information and the quiz",
+        ],
+      },
+    ],
+    stack: ["Unity", "C#", "Blender", "AR image recognition", "Android"],
+    repo: "https://github.com/mdzafic/Arnica-montana-AR",
+    demo: "",
+    images: [
+      { src: "/arnica-ar/1.png", caption: "Render 1" },
+      { src: "/arnica-ar/2.png", caption: "Render 2" },
+      { src: "/arnica-ar/3.png", caption: "Render 3" },
+      { src: "/arnica-ar/4.png", caption: "Home page" },
+      { src: "/arnica-ar/5.png", caption: "AR scene" },
+    ],
+    tint: "bg-emerald-50",
+  },
 ];
 
 export const education = [
@@ -289,9 +456,10 @@ export const education = [
 
 export const skillGroups = [
   { label: "Languages", items: "C, C++, C#, Java, Python, JavaScript, Julia, SQL, HTML5, CSS3, LaTeX" },
+  { label: "QA & Testing", items: "Azure DevOps Test Plans, Selenium WebDriver, NUnit, MSTest, Postman / Postman CLI, Loadster, Chrome DevTools" },
   { label: "Web", items: "Node.js, Express.js, ASP.NET Core" },
   { label: "Databases", items: "PostgreSQL, MySQL, Redis" },
   { label: "Tools", items: "Git, Docker, Postman" },
   { label: "AI & Data", items: "TensorFlow/Keras, scikit-learn, NumPy, pandas, SciPy, Matplotlib" },
-  { label: "3D & AR", items: "Blender, Augmented Reality" },
+  { label: "3D & AR", items: "Blender, Unity" },
 ];

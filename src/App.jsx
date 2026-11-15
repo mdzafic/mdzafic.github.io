@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectPage from "./components/ProjectPage";
+import AllProjects from "./components/AllProjects";
 
 function Home() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
         <Route path="*" element={<Home />} />
       </Routes>

@@ -189,15 +189,19 @@ export default function ProjectPage() {
         )}
       </div>
 
-      <div className="mt-12 flex items-center justify-between border-b border-line pb-3">
-        <h2 className="text-sm font-medium">Screenshots</h2>
-        <span className="flex items-center gap-1.5 text-xs text-muted">
-          <ZoomIcon className="size-3.5" />
-          Click to enlarge
-        </span>
-      </div>
+      {p.images?.length > 0 && (
+        <>
+          <div className="mt-12 flex items-center justify-between border-b border-line pb-3">
+            <h2 className="text-sm font-medium">Screenshots</h2>
+            <span className="flex items-center gap-1.5 text-xs text-muted">
+              <ZoomIcon className="size-3.5" />
+              Click to enlarge
+            </span>
+          </div>
 
-      <Gallery key={p.slug} images={p.images} />
+          <Gallery key={p.slug} images={p.images} />
+        </>
+      )}
 
       <h2 className="mt-14 text-sm font-medium">Overview</h2>
       <p className="mt-3 text-sm leading-relaxed text-muted">{p.overview}</p>
